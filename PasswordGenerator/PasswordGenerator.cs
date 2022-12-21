@@ -13,7 +13,7 @@ namespace PasswordGenerator
         }
 
         static readonly Random servProvider = new();
-        bool isDarkModeEnabled = false;
+        bool isDarkModeEnabled = true;
         int PassQuantity, PassLength = 1;
 
         /// <summary>
