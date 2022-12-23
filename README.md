@@ -1,6 +1,10 @@
-# Password Generator
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/89481059/209265149-d98ad199-044b-476a-b30f-26e4270b36c7.png" alt="drawing" width="500" style="border-radius:50%"/> 
+  <h1 align="center"> - <bold>Password Manager</bold> - </h1>
+</p>
 
 A simple password generator built with C# and Windows Forms, allowing users to specify the character types and length of the generated passwords.
+
 
 ## Features
 
