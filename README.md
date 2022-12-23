@@ -16,7 +16,7 @@ A simple password generator built with C# and Windows Forms, allowing users to s
 ## Usage
 
 1.  Download the latest release of the password generator from the [releases](https://github.com/black0439/GUI-blPasswordGenerator/releases) page.
-2.  Extract the downloaded file and run the `PasswordGenerator.exe` file inside ```...\PasswordGenerator\PasswordGenerator\bin\Release\net7.0-windows```.
+2.  Extract the downloaded file and run the `PasswordGenerator.exe` file.
 3.  Use the checkboxes to specify the character types to include in the generated passwords.
 4.  Enter the desired password length in the "Length" text box.
 5.  Enter the number of passwords to generate in the "Quantity" text box.
