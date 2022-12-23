@@ -97,11 +97,30 @@ namespace PasswordGenerator
             // Get the paths to the dark mode and inverse dark mode pictures.
             string darkModePicturePath = Path.Combine(resourcesDirectoryPath, "DarkModePicture.png");
             string inverseDarkModePicturePath = Path.Combine(resourcesDirectoryPath, "InverseDarkModePicture.png");
-            Bitmap darkModePicture = new Bitmap(darkModePicturePath);
-            Bitmap iDMP = new Bitmap(inverseDarkModePicturePath);
+            Bitmap darkModePicture = new(darkModePicturePath);
+            Bitmap iDMP = new(inverseDarkModePicturePath);
 
             // Set the dark mode switch image based on the current state of the dark mode switch.
             DarkModeSwitch.Image = isDarkModeEnabled ? iDMP : darkModePicture;
+        }
+
+        /// <summary>
+        /// Change the Length text label based on the stable length check
+        /// </summary>
+        private void StableLengthCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!StableLengthCheck.Checked)
+            {
+                LengthTxt.Location = new System.Drawing.Point(79, 68);
+                StableLengthCheck.Location = new System.Drawing.Point(241, 70);
+                LengthLabel.Text = "Length:";
+            }
+            else
+            {
+                LengthTxt.Location = new System.Drawing.Point(100, 68);
+                StableLengthCheck.Location = new System.Drawing.Point(262, 70);
+                LengthLabel.Text = "MaxLength:";
+            }
         }
 
         /// <summary>
@@ -126,28 +145,42 @@ namespace PasswordGenerator
                 }
                 else
                 {
-                    // Parse the quantity and length values from the text boxes
+                    // Parse the quantity and length values from the text boxes.
                     PassQuantity = int.Parse(QuantityTxt.Text);
                     PassLength = int.Parse(LengthTxt.Text);
                 }
 
-                // Create an array to hold all the generated passwords
+                // Create an array to hold all the generated passwords.
                 string[] AllPasses = new string[PassQuantity];
 
-                // Use a StringBuilder to generate the passwords
-                StringBuilder stringBuilder = new StringBuilder();
-                Parallel.For(0, PassQuantity, i =>
+                // Use a StringBuilder to generate the passwords.
+                StringBuilder stringBuilder = new();
+                Random randomLength = new();
+                int unstableLength;
+                for (int i = 0; i < PassQuantity; i++)
                 {
                     stringBuilder.Clear();
-                    for (int n = 0; n < PassLength; n++)
-                    {
-                        // Append a randomly generated character to the string builder
-                        stringBuilder.Append(GenerateRandomCharacter(Template.AvailableCharacters));
-                    }
 
-                    // Add the generated password to the array
+                    if (StableLengthCheck.Checked)
+                    {
+                        for (int n = 0; n < PassLength; n++)
+                        {
+                            // Append a randomly generated character to the string builder.
+                            stringBuilder.Append(GenerateRandomCharacter(Template.AvailableCharacters));
+                        }
+                    }
+                    else
+                    {
+                        unstableLength = randomLength.Next(1, PassLength);
+                        for (int n = 0; n < unstableLength; n++)
+                        {
+
+                            stringBuilder.Append(GenerateRandomCharacter(Template.AvailableCharacters));
+                        }
+                    }
+                    // Add the generated password to the array.
                     AllPasses[i] = stringBuilder.ToString();
-                });
+                }
 
                 // Clear the output text box
                 OutputTxt.Clear();
