@@ -33,7 +33,6 @@
             this.NavBar = new System.Windows.Forms.Panel();
             this.DarkModeSwitch = new System.Windows.Forms.PictureBox();
             this.PassGenGroupBox = new System.Windows.Forms.GroupBox();
-            this.StableLengthCheck = new System.Windows.Forms.CheckBox();
             this.IncludeSymbolsCheck = new System.Windows.Forms.CheckBox();
             this.IncludeNumericCheck = new System.Windows.Forms.CheckBox();
             this.IncludeLowerCheck = new System.Windows.Forms.CheckBox();
@@ -81,7 +80,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PassGenGroupBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(46)))));
-            this.PassGenGroupBox.Controls.Add(this.StableLengthCheck);
             this.PassGenGroupBox.Controls.Add(this.IncludeSymbolsCheck);
             this.PassGenGroupBox.Controls.Add(this.IncludeNumericCheck);
             this.PassGenGroupBox.Controls.Add(this.IncludeLowerCheck);
@@ -99,19 +97,6 @@
             this.PassGenGroupBox.TabIndex = 1;
             this.PassGenGroupBox.TabStop = false;
             this.PassGenGroupBox.Text = "PassGen";
-            // 
-            // StableLengthCheck
-            // 
-            this.StableLengthCheck.AutoSize = true;
-            this.StableLengthCheck.Checked = true;
-            this.StableLengthCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.StableLengthCheck.Location = new System.Drawing.Point(241, 70);
-            this.StableLengthCheck.Name = "StableLengthCheck";
-            this.StableLengthCheck.Size = new System.Drawing.Size(172, 27);
-            this.StableLengthCheck.TabIndex = 10;
-            this.StableLengthCheck.Text = "stable length";
-            this.StableLengthCheck.UseVisualStyleBackColor = true;
-            this.StableLengthCheck.CheckedChanged += new System.EventHandler(this.StableLengthCheck_CheckedChanged);
             // 
             // IncludeSymbolsCheck
             // 
@@ -190,7 +175,7 @@
             // 
             this.LengthTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.LengthTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
-            this.LengthTxt.Location = new System.Drawing.Point(79, 68);
+            this.LengthTxt.Location = new System.Drawing.Point(82, 67);
             this.LengthTxt.Name = "LengthTxt";
             this.LengthTxt.Size = new System.Drawing.Size(156, 31);
             this.LengthTxt.TabIndex = 1;
@@ -286,6 +271,5 @@
         private CheckBox IncludeUpperCheck;
         private PictureBox DarkModeSwitch;
         private Panel Body;
-        private CheckBox StableLengthCheck;
     }
 }
